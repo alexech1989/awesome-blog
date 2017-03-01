@@ -1,0 +1,14 @@
+# Create RSA private key for the CA
+openssl genrsa 2048 > ca-key.pem
+
+# Create certificate for the CA
+openssl req -sha1 -new -x509 -nodes -days 3650 -key ca-key.pem > ca-cert.pem
+
+# Create private key for the server
+openssl req -sha1 -newkey rsa:2048 -days 730 -nodes -keyout server-key.pem > server-req.pem
+
+# Export the server's private key to RSA key type
+openssl rsa -in server-key.pem -out server-key.pem
+
+# Create the server's certificate using the CA certificate
+openssl x509 -sha1 -req -in server-req.pem -days 730 -CA ca-cert.pem -CAkey ca-key.pem -set_serial 01 > server-cert.pem

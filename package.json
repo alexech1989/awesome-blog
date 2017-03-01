@@ -1,0 +1,30 @@
+{
+  "name": "hapi-tutorial",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "predev": "set DEBUG=* && set NODE_ENV=dev",
+    "dev": "node ./server/setup/setup.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^1.0.2",
+    "bluebird": "^3.4.7",
+    "debug": "^2.6.1",
+    "glue": "^4.1.0",
+    "good": "^7.1.0",
+    "good-console": "^6.4.0",
+    "good-squeeze": "^5.0.1",
+    "hapi": "^16.1.0",
+    "hapi-auth-basic": "^4.2.0",
+    "hapi-auth-jwt2": "^7.2.4",
+    "inert": "^4.1.0",
+    "json-parse-async": "^1.0.3",
+    "jsonwebtoken": "^7.3.0",
+    "lodash": "^4.17.4",
+    "mysql": "^2.13.0"
+  }
+}

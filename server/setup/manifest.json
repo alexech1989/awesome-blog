@@ -1,0 +1,48 @@
+{
+  "server": {
+    "connections": {
+      "router": {
+        "isCaseSensitive": false,
+        "stripTrailingSlash": true
+      }
+    }
+  },
+  "connections": [
+    {
+      "address": "0.0.0.0",
+      "port": 8000,
+      "labels": ["api"]
+    },
+    {
+      "address": "0.0.0.0",
+      "port": 8001,
+      "labels": ["web"]
+    }
+  ],
+  "registrations": [
+    {
+      "plugin": {
+        "register": "good",
+        "options": {
+          "reporters": {
+            "console": [{
+              "module": "good-squeeze",
+              "name": "Squeeze",
+              "args": [{
+                "response": "*",
+                "log": "*"
+              }]
+            }, {
+              "module": "good-console"
+            }, "stdout"]
+          }
+        }
+      }
+    },
+    {
+      "plugin": {
+        "register": "hapi-auth-jwt2"
+      }
+    }
+  ]
+}
